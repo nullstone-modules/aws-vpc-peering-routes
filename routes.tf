@@ -8,7 +8,7 @@ data "aws_route_tables" "private" {
 }
 
 resource "aws_route" "this" {
-  for_each = local.has_peering_id ? data.aws_route_tables.private.ids : []
+  for_each = local.has_peering_id ? toset(data.aws_route_tables.private.ids) : toset([])
 
   route_table_id            = each.value
   destination_cidr_block    = local.destination_cidr
