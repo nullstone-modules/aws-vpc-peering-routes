@@ -7,7 +7,7 @@ locals {
   requester_vpc_id = !local.has_peering_id ? "" : data.aws_vpc_peering_connection.this[0].vpc_id
   accepter_vpc_id  = !local.has_peering_id ? "" : data.aws_vpc_peering_connection.this[0].peer_vpc_id
   is_acceptor      = local.accepter_vpc_id == local.vpc_id
-  destination_cidr = !local.has_peering_id ? "" : (local.is_acceptor ? data.aws_vpc_peering_connection.this[0].peer_cidr_block : data.aws_vpc_peering_connection.this[0].cidr_block)
+  destination_cidr = !local.has_peering_id ? "" : (local.is_acceptor ? data.aws_vpc_peering_connection.this[0].cidr_block : data.aws_vpc_peering_connection.this[0].peer_cidr_block)
 }
 
 data "validation_error" "valid_vpc_id" {
