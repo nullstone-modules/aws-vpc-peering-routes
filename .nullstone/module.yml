@@ -1,0 +1,13 @@
+org_name: nullstone
+name: aws-vpc-peering-routes
+friendly_name: VPC Peering Routes
+description: Configures routes for a VPC to another VPC through a peering connection.
+category: block
+subcategory: ""
+provider_types:
+    - aws
+platform: vpc
+subplatform: peering
+type: ""
+appCategories: []
+is_public: true
